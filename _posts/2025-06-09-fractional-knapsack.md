@@ -78,38 +78,54 @@ Pertanyaan: Berapa **nilai maksimum** yang bisa dibawa dalam tas?
 #include <iostream>
 #include <vector>
 #include <algorithm>
+
 using namespace std;
 
-struct Activity {
-    int start, finish, index;
+struct Item {
+    string name;
+    double weight;
+    double value;
+
+    double ratio() const {
+        return value / weight;
+    }
 };
 
-bool compare(Activity a, Activity b) {
-    return a.finish < b.finish;
-}
-
-void activitySelection(vector<Activity>& activities) {
-    sort(activities.begin(), activities.end(), compare);
-
-    cout << "Aktivitas terpilih (index): ";
-    int lastFinish = -1;
-
-    for (auto act : activities) {
-        if (act.start >= lastFinish) {
-            cout << act.index << " ";
-            lastFinish = act.finish;
-        }
-    }
-    cout << endl;
+bool compare(Item a, Item b) {
+    return a.ratio() > b.ratio();
 }
 
 int main() {
-    vector<Activity> activities = {
-        {1, 2, 0}, {3, 4, 1}, {0, 6, 2},
-        {5, 7, 3}, {8, 9, 4}, {5, 9, 5}
+    double capacity = 30.0; 
+    vector<Item> items = {
+        {"Laptop", 10, 300},
+        {"Buku Paket", 20, 200},
+        {"Baju", 30, 180}
     };
 
-    activitySelection(activities);
+    sort(items.begin(), items.end(), compare);
+
+    double totalValue = 0.0;
+    double totalWeight = 0.0;
+
+    cout << "Barang yang dipilih:\n";
+    for (const auto& item : items) {
+        if (capacity == 0) break;
+
+        if (item.weight <= capacity) {
+            totalValue += item.value;
+            capacity -= item.weight;
+            cout << "- " << item.name << " (berat: " << item.weight << " kg, nilai: " << item.value << ")\n";
+        } else {
+            double fraction = capacity / item.weight;
+            totalValue += item.value * fraction;
+            cout << "- " << item.name << " (berat: " << capacity << " kg dari " << item.weight << " kg, nilai: " << item.value * fraction << ")\n";
+            capacity = 0;
+        }
+    }
+
+    cout << "\nTotal nilai yang dibawa: " << totalValue << endl;
+
     return 0;
 }
 ```
