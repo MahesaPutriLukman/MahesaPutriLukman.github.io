@@ -1,4 +1,4 @@
-``---
+---
 title: "01 - Activity Selection Problem"
 date: 2025-06-09 08:00:00 +0800
 categories: [DAA, Greedy Algorithm]
