@@ -1,13 +1,13 @@
 ---
 title: "01 - Activity Selection Problem"
 date: 2025-06-09 08:00:00 +0800
-categories: [DAA, Greedy Algorithm]
+categories: [DAA, Activity Selection Problem]
 tags: [Activity Selection, Greedy, C++]
 ---
 
 # Activity Selection Problem
 
-## 🧠 Materi 1
+## 🎯 Materi 1 
 **Activity Selection Problem**
 **Kelompok 1**
 - Ahmad Hidayat
@@ -24,7 +24,7 @@ Activity Selection Problem adalah masalah optimasi yang bertujuan untuk memilih 
 - Strategi: selalu pilih aktivitas yang selesai paling awal
 - Cocok untuk masalah penjadwalan yang efisien
 
-## 💻 Konsep Algoritma Greedy
+## 🧑‍💻 Konsep Algoritma Greedy
 **Algoritma Greedy** adalah strategi pemecahan masalah optimasi yang bekerja dengan membuat pilihan yang tampak paling baik pada setiap langkah, dengan harapan rangkaian pilihan ini akan mengarahkan pada solusi yang optimal secara keseluruhan. Algoritma ini bersifat **serakah** karena langsung mengambil pilihan terbaik saat itu tanpa mempertimbangkan konsekuensi di masa depan.
 
 Dalam konteks **Activity Selection Problem**, algoritma greedy secara efektif diterapkan dengan memilih aktivitas yang memiliki waktu selesai paling awal di setiap langkah.
@@ -40,7 +40,7 @@ Dalam konteks **Activity Selection Problem**, algoritma greedy secara efektif di
 2. Pilih aktivitas pertama (paling awal selesai)
 3. Pilih aktivitas berikutnya hanya jika waktu mulai ≥ waktu selesai aktivitas terakhir yang dipilih
 
-## 🧮 Problem and Solution Example
+## 🧩 Problem and Solution Example
 **Aktivitas, Mulai (s), Selesai (f)**
 - A1, 1, 4
 - A2, 3, 5
@@ -101,7 +101,7 @@ int main() {
 }
 ```
 
-## 🧠 Analisis Kompleksitas
+## 📚 Analisis Kompleksitas
 **Kompleksitas Waktu**
 - Pengurutan aktivitas berdasarkan waktu selesai: O(n log n)
 - Pemilihan aktivitas: O(n)
@@ -111,13 +111,13 @@ int main() {
 - Menyimpan aktivitas: O(n)
 - Tidak memerlukan ruang tambahan yang signifikan untuk menyimpan input dan output
 
-## 📌 Aplikasi Dunia Nyata
+## 🌟 Aplikasi Dunia Nyata
 - Penjadwalan & Fasilitas (Jadwal ruang kelas, meeting, lab, olahraga)
 - Sistem Operasi (Jadwal proses CPU, alokasi memori)
 - Logistik (Jadwal pengiriman, rute kendaraan)
 - Telekomunikasi (Alokasi bandwidth, jadwal transmisi data)
 
-## Kekuatan dan Keterbatasan
+## 💪 Kekuatan dan Keterbatasan
 **Kekuatan**
 - Sederhana dan mudah diimplementasikan
 - Efisien untuk dataset besar
@@ -127,5 +127,5 @@ int main() {
 - Membutuhkan proses pengurutan awal
 - Tidak cocok untuk masalah dengan banyak tambahan (seperti prioritas, jarak, atau biaya)
 
-## Kesimpulan
+## 🏁 Kesimpulan
 **Activity Selection Problem** adalah masalah optimasi untuk memilih aktivitas sebanyak mungkin tanpa tumpang tindih. Diselesaikan dengan **Algoritma Greedy** yang mengurutkan aktivitas berdasarkan waktu selesai, menghasilkan solusi optimal dengan efisiensi O(n log n). Cocok untuk aplikasi penjadwalan, namun untuk kasus kompleks dibutuhkan metode lain seperti pemrograman dinamis atau metaheuristik.
