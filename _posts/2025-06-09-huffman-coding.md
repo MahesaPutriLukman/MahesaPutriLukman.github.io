@@ -7,7 +7,7 @@ tags: [Huffman Coding, C++]
 
 # Huffman Coding
 
-## 🧾 Materi  
+## 🧾 Materi 3 
 **Huffman Coding**
 **Kelompok 3**
 - Dalvyn Suhada
@@ -70,40 +70,76 @@ Biasanya terdiri dari:
 
 ```cpp
 #include <iostream>
-#include <vector>
-#include <algorithm>
+#include <queue>
+#include <unordered_map>
 using namespace std;
 
-struct Activity {
-    int start, finish, index;
+struct Node {
+    char ch;
+    int freq;
+    Node *left, *right;
+
+    Node(char c, int f) {
+        ch = c;
+        freq = f;
+        left = right = nullptr;
+    }
 };
 
-bool compare(Activity a, Activity b) {
-    return a.finish < b.finish;
+struct Compare {
+    bool operator()(Node* a, Node* b) {
+        return a->freq > b->freq;
+    }
+};
+
+void generateCodes(Node* root, string code, unordered_map<char, string>& huffmanCode) {
+    if (!root) return;
+
+    if (!root->left && !root->right) {
+        huffmanCode[root->ch] = code;
+    }
+
+    generateCodes(root->left, code + "0", huffmanCode);
+    generateCodes(root->right, code + "1", huffmanCode);
 }
 
-void activitySelection(vector<Activity>& activities) {
-    sort(activities.begin(), activities.end(), compare);
+void huffmanCoding(const unordered_map<char, int>& freqMap) {
+    priority_queue<Node*, vector<Node*>, Compare> minHeap;
 
-    cout << "Aktivitas terpilih (index): ";
-    int lastFinish = -1;
-
-    for (auto act : activities) {
-        if (act.start >= lastFinish) {
-            cout << act.index << " ";
-            lastFinish = act.finish;
-        }
+    for (auto pair : freqMap) {
+        minHeap.push(new Node(pair.first, pair.second));
     }
-    cout << endl;
+
+    while (minHeap.size() > 1) {
+        Node* left = minHeap.top(); minHeap.pop();
+        Node* right = minHeap.top(); minHeap.pop();
+
+        Node* merged = new Node('\0', left->freq + right->freq);
+        merged->left = left;
+        merged->right = right;
+
+        minHeap.push(merged);
+    }
+
+    Node* root = minHeap.top();
+
+    unordered_map<char, string> huffmanCode;
+    generateCodes(root, "", huffmanCode);
+
+    cout << "Kode Huffman untuk tiap karakter:\n";
+    for (auto pair : huffmanCode) {
+        cout << pair.first << " : " << pair.second << endl;
+    }
 }
 
 int main() {
-    vector<Activity> activities = {
-        {1, 2, 0}, {3, 4, 1}, {0, 6, 2},
-        {5, 7, 3}, {8, 9, 4}, {5, 9, 5}
+    unordered_map<char, int> freqMap = {
+        {'a', 5}, {'b', 9}, {'c', 12},
+        {'d', 13}, {'e', 16}, {'f', 45}
     };
 
-    activitySelection(activities);
+    huffmanCoding(freqMap);
+
     return 0;
 }
 ```

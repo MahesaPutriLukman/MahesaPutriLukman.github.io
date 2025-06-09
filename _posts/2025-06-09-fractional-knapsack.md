@@ -7,7 +7,7 @@ tags: [Fractional Knapsack, algoritma greedy, C++]
 
 # Fractional Knapsack
 
-## 🎒 Materi  
+## 🎒 Materi 2 
 **Fractional Knapsack**
 **Kelompok 2**
 - Zalfa Syauqiyah Hamka
