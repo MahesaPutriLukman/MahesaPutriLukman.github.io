@@ -34,18 +34,15 @@ Activity Selection Problem adalah masalah optimasi yang bertujuan untuk memilih 
 #include <algorithm>
 using namespace std;
 
-// Struktur untuk menyimpan aktivitas
 struct Activity {
     int start, finish, index;
 };
 
-// Comparator untuk mengurutkan berdasarkan waktu selesai
 bool compare(Activity a, Activity b) {
     return a.finish < b.finish;
 }
 
 void activitySelection(vector<Activity>& activities) {
-    // Urutkan aktivitas berdasarkan waktu selesai
     sort(activities.begin(), activities.end(), compare);
 
     cout << "Aktivitas terpilih (index): ";
