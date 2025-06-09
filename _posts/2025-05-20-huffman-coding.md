@@ -1,6 +1,6 @@
 ---
 title: "03 - Huffman Coding"
-date: 2025-06-09 08:00:00 +0800
+date: 2025-05-20 08:00:00 +0800
 categories: [DAA, Huffman Coding]
 tags: [Huffman Coding, C++]
 ---

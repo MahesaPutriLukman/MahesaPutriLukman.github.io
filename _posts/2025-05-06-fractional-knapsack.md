@@ -1,6 +1,6 @@
 ---
 title: "02 - Factional Knapsack"
-date: 2025-06-09 08:00:00 +0800
+date: 2025-05-06 08:00:00 +0800
 categories: [DAA, Fractional Knapsack]
 tags: [Fractional Knapsack, algoritma greedy, C++]
 ---

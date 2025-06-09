@@ -1,11 +1,11 @@
 ---
 title: "04 - N-Queens Problem"
-date: 2025-06-09 08:00:00 +0800
+date: 2025-05-20 08:00:00 +0800
 categories: [DAA, N-Queens Problem]
 tags: [N-Queens Problem, Backtracking, C++]
 ---
 
-# Huffman Coding
+# N-Queens Problem
 
 ## 👑 Materi 4 
 **N-Queens Problem**
