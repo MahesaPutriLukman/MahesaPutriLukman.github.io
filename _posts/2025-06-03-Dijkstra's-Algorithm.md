@@ -7,7 +7,7 @@ tags: [Dijkstra's Algorithm, C++]
 
 # Dijkstra's Algorithm
 
-## 📶 Materi 10
+## 🗺️ Materi 10
 **Dijkstra's Algorithm**
 **Kelompok 10**
 - Akmal

@@ -7,7 +7,7 @@ tags: [Khan's Algorithm, C++]
 
 # Khan's Algorithm
 
-## 📶 Materi 9
+## 🗺️ Materi 9
 **Khan's Algorithm**
 **Kelompok 9**
 - Nurul Marisa Clara Waldi
